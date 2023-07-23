@@ -1,6 +1,17 @@
 #include "main.h"
 
 /**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
  * printStr - prints string depanding on number of arguments
  *
  * @args: number of arguments
@@ -42,4 +53,26 @@ int printChar(va_list args)
 	ch = va_arg(args, int);
 	putchar(ch);
 	return (1);
+}
+/**
+ *print_number - entry point
+ *Descrition: function that prints an integer
+ *@n: the number to be printed
+ *@counter: the number of printed elements
+ * Return: no return
+ */
+void print_number(int n, int *counter)
+{
+	unsigned int x = n;
+
+	if (n < 0)
+	{
+		_putchar('-');
+		x = -x;
+		(*counter)++;
+	}
+	if ((x / 10) > 0)
+		print_number(x / 10, counter);
+	_putchar((x % 10) + '0');
+	(*counter)++;
 }

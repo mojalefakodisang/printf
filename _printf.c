@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int counter = 0;
+	int I, counter = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -27,6 +27,11 @@ int _printf(const char *format, ...)
 			{
 				putchar('%');
 				counter++;
+			}
+			else if (*format == 'i' || *format == 'd')
+			{
+				I = va_arg(args, int);
+				print_number(I, &counter);
 			}
 			else
 			{
