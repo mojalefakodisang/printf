@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int I, counter = 0;
 
-	if (!format)
+	if (format == NULL)
 		return (-1);
 	va_start(args, format);
 	while (*format)
@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'i' || *format == 'd')
 			{
 				I = va_arg(args, int);
-				print_number(I, &counter);
+				counter += print_num(args, I, &counter);
 			}
 			else
 			{

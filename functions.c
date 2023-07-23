@@ -59,18 +59,19 @@ int printChar(va_list args)
  *@counter: the number of printed elements
  * Return: no return
  */
-void print_number(int n, int *counter)
+int print_num(va_list args, int n, int *counter)
 {
 	unsigned int x = n;
 
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		x = -x;
 		(*counter)++;
 	}
 	if ((x / 10) > 0)
-		print_number(x / 10, counter);
-	_putchar((x % 10) + '0');
+		print_num(args, x / 10, counter);
+	putchar((x % 10) + '0');
 	(*counter)++;
+	return (*counter);
 }
