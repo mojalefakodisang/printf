@@ -27,9 +27,7 @@ int printStr(va_list args, int *count)
 	str = va_arg(args, char*);
 	if (str == NULL)
 	{
-
-		puts("(null)");
-		return (6);
+		str = "(null)";
 	}
 	while (*str)
 	{
