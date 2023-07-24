@@ -19,17 +19,11 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			if (*format == ' ')
-			{
-				format++;
-				if (*format == '\0')
-					return (-1);
-			}
 			if (*format == 'c')
 				counter += printChar(args);
 			else if (*format == 's')
 			{
-				counter += printStr(args, &counter);
+				counter += printStr(args);
 			}
 			else if (*format == '%')
 			{
@@ -50,29 +44,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (*format == '%' && *(format + 1) == ' ')
-			{
-				return (-1);
-			}
-			if (*format == '%' && *(format + 1) == '\0')
-			{
-				return (-1);
-			}
-			if(*format == '\t')
-			{
-				putchar('\t');
-				counter++;
-			}
-			if (*format == '\n')
-			{
-				putchar('\n');
-				counter++;
-			}
-			else
-			{
-				putchar(*format);
-				counter++;
-			}
+			putchar(*format);
+			counter++;
 		}
 		format++;
 	}

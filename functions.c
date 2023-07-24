@@ -19,7 +19,7 @@ int _putchar(char c)
  *
  * Return: returns 1 on success
  */
-int printStr(va_list args, int *counter)
+int printStr(va_list args)
 {
 	char *str;
 	int i = 0;
@@ -34,7 +34,6 @@ int printStr(va_list args, int *counter)
 		putchar(*str++);
 		i++;
 	}
-	*counter += i;
 	return (i);
 }
 /**
