@@ -52,14 +52,6 @@ int _printf(const char *format, ...)
 				putchar('\n');
 				counter++;
 			}
-			else if (*format == '% ')
-			{
-				return (-1);
-			}
-			else if (*format == '%')
-			{
-				return (-1);
-			}
 			else
 			{
 				putchar(*format);
