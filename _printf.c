@@ -18,8 +18,12 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-			{
 				return (-1);
+			if (*format == ' ')
+			{
+				format++;
+				if (*format == '\0')
+					return (-1);
 			}
 			if (*format == 'c')
 				counter += printChar(args);
