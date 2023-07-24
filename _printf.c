@@ -47,18 +47,22 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if ((*format == '%' && *format == ' ') ||
-					(*format == '%' && *format == '\0'))
+			if (*format == '%' && *format == ' ')
 			{
 				va_end(args);
 				return (-1);
 			}
-			else if(*format == '\t')
+			if (*format == '%' && *format == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
+			if(*format == '\t')
 			{
 				putchar('\t');
 				counter++;
 			}
-			else if (*format == '\n')
+			if (*format == '\n')
 			{
 				putchar('\n');
 				counter++;
