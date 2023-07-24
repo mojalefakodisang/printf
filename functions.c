@@ -15,11 +15,11 @@ int _putchar(char c)
  * printStr - prints string depanding on number of arguments
  *
  * @args: number of arguments
- * @count: counts number of characters
+ * @counter: counts number of characters
  *
  * Return: returns 1 on success
  */
-int printStr(va_list args, int *count)
+int printStr(va_list args, int *counter)
 {
 	char *str;
 	int i = 0;
@@ -34,7 +34,7 @@ int printStr(va_list args, int *count)
 		putchar(*str++);
 		i++;
 	}
-	*count += i;
+	*counter += i;
 	return (i);
 }
 /**
