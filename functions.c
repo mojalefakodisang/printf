@@ -15,7 +15,6 @@ int _putchar(char c)
  * printStr - prints string depanding on number of arguments
  *
  * @args: number of arguments
- * @counter: counts number of characters
  *
  * Return: returns 1 on success
  */
