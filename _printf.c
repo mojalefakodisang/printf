@@ -28,16 +28,6 @@ int _printf(const char *format, ...)
 				putchar('%');
 				counter++;
 			}
-			else if (*format == '\n')
-			{
-				putchar('\n');
-				counter++;
-			}
-			else if (*format == '\t')
-			{
-				putchar('\t');
-				counter++;
-			}
 			else if (*format == 'i' || *format == 'd')
 			{
 				I = va_arg(args, int);
@@ -52,8 +42,21 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*format);
-			counter++;
+			if (*format == '\t')
+			{
+				putchar('\t');
+				counter++;
+			}
+			else if (*format == '\n')
+			{
+				putchar('\n');
+				counter++;
+			}
+			else
+			{
+				putchar(*format);
+				counter++;
+			}
 		}
 		format++;
 	}
