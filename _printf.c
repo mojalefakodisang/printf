@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 				va_end(args);
 				return (-1);
 			}
-			if (*format == '%' && *format == '\0')
+			if (*format == '%' && *(format + 1) == '\0')
 			{
 				va_end(args);
 				return (-1);
