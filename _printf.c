@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (*format == '%' && (*format + 1) == ' ')
+			if (*format == '%' && *(format + 1) == ' ')
 			{
 				va_end(args);
 				return (-1);
