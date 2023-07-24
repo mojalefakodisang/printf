@@ -17,6 +17,11 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
 			if (*format == 'c')
 				counter += printChar(args);
 			else if (*format == 's')
@@ -42,7 +47,12 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (*format == '\t')
+			if (*format == '%' && *format == ' ')
+			{
+				va_end(args);
+				return (-1);
+			}
+			else if(*format == '\t')
 			{
 				putchar('\t');
 				counter++;
