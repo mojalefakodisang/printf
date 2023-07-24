@@ -49,12 +49,10 @@ int _printf(const char *format, ...)
 		{
 			if (*format == '%' && *(format + 1) == ' ')
 			{
-				va_end(args);
 				return (-1);
 			}
 			if (*format == '%' && *(format + 1) == '\0')
 			{
-				va_end(args);
 				return (-1);
 			}
 			if(*format == '\t')
