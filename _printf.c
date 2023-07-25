@@ -19,17 +19,12 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			if (*format == 'c')
+			else if (*format == 'c')
 				counter += printChar(args);
 			else if (*format == 's')
-			{
 				counter += printStr(args);
-			}
 			else if (*format == '%')
-			{
-				putchar('%');
-				counter++;
-			}
+				counter += printPercent(args);
 			else if (*format == 'i' || *format == 'd')
 			{
 				I = va_arg(args, int);

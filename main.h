@@ -12,5 +12,7 @@ int _printf(const char *format, ...);
 void print_number(int n, int *count);
 int printStr(va_list args);
 int printChar(va_list args);
+int printPercent(va_list args);
+int printCus(va_list args);
 
 #endif
