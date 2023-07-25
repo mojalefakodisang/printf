@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <string.h>
 
+/* main functions*/
+
 int _putchar(char c);
 int _printf(const char *format, ...);
 void print_number(int n, int *count);
