@@ -41,7 +41,9 @@ int printChar(va_list args)
 }
 /**
  * printPercent - prints percent
+ *
  * @args:number of arguments
+ *
  * Return: prints % on success
  */
 int printPercent(va_list args)
@@ -54,9 +56,11 @@ int printPercent(va_list args)
 }
 /**
  *print_number - entry point
+
  *Descrition: function that prints an integer
  *@n: the number to be printed
  *@counter: the number of printed elements
+
  * Return: no return
  */
 void print_number(int n, int *counter)
@@ -76,7 +80,9 @@ void print_number(int n, int *counter)
 }
 /**
  * printCus - prints custom specifiers
+ *
  * @args: number of arguments
+ *
  * Return: number of characters
  */
 int printCus(va_list args)
