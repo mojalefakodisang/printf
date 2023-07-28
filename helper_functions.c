@@ -35,9 +35,17 @@ int printUnsigned(va_list args)
 	return (count);
 }
 
+/**
+ * print_custom_char - prints custom conversion specifiers
+ *
+ * @ch: character
+ *
+ * Return: no return value
+ */
 void print_custom_char(char ch)
 {
 	char hexDec[] = "0123456789ABCDEF";
+
 	if (ch < 32 || ch >= 127)
 	{
 		putchar('\\');
