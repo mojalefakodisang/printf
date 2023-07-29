@@ -71,16 +71,17 @@ int print_number(va_list args)
 		if (n < 0)
 		{
 			putchar('-');
+			count++;
 			if (n == INT_MIN)
 			{
 				putchar('2');
 				n = -(n + 2000000000);
 				count++;
 			}
-			n = -n;
-			count++;
+			else
+				n = -n;
 		}
-		temp = n;
+		temp = n, numDigits = 0;
 		while (temp != 0)
 		{
 			temp = temp / 10;
