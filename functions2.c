@@ -9,9 +9,9 @@
  */
 int printBinary(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned int n = va_arg(args, unsigned int);
 	int i, j, count = 0;
-	int binary[32];
+	unsigned int binary[64];
 
 	i = 0;
 	while (n > 0)
@@ -42,12 +42,12 @@ int printBinary(va_list args)
  */
 int printOctal(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned int n = va_arg(args, unsigned int);
 	int i, j, count = 0;
-	int octal[32];
+	unsigned int octal[64];
 
 	i = 0;
-	while (n > 0)
+	while (n != 0)
 	{
 		octal[i] = n % 8;
 		n /= 8;
@@ -58,7 +58,7 @@ int printOctal(va_list args)
 		putchar(n);
 		count++;
 	}
-	for (j = i - 1; j >= 0; j--)
+	for (j = i - 1; j >= 0; --j)
 	{
 		putchar(octal[j] + '0');
 		count++;
@@ -74,9 +74,9 @@ int printOctal(va_list args)
  */
 int printHexadec(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned int n = va_arg(args, unsigned int);
 	int i, j, count = 0;
-	int hexadec[32];
+	unsigned int hexadec[64];
 
 	i = 0;
 	while (n > 0)
@@ -114,9 +114,9 @@ int printHexadec(va_list args)
  */
 int printHexaDec(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned int n = va_arg(args, unsigned int);
 	int i, j, count = 0;
-	int hexaDec[32];
+	unsigned int hexaDec[64];
 
 	i = 0;
 	while (n > 0)
@@ -142,30 +142,6 @@ int printHexaDec(va_list args)
 			putchar(hexaDec[j] + '0');
 			count++;
 		}
-	}
-	return (count);
-}
-/**
- * printCustom - handles custom specifier
- *
- * @args: arguments
- *
- * Return: returns number of characters
- */
-int printCustom(va_list args)
-{
-	char *str = va_arg(args, char *);
-	int count = 0;
-
-	if (str == NULL)
-	{
-		str = "(null)";
-	}
-	while (*str)
-	{
-		print_custom_char(*str);
-		count += 2;
-		str++;
 	}
 	return (count);
 }

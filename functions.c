@@ -60,7 +60,7 @@ int printPercent(va_list args)
 int print_number(va_list args)
 {
 	int n = va_arg(args, int);
-	int count = 0, numDigits = 0, temp, divisor = 1, digit, i;
+	int count = 0, numDigits = 0, temp, div = 1, digit, i;
 
 	if (n == 0)
 	{
@@ -72,26 +72,34 @@ int print_number(va_list args)
 		if (n < 0)
 		{
 			putchar('-');
-			n = -n;
-			count++;
+			if (n == INT_MIN)
+			{
+				putchar('2');
+				n = -(n + 2000000000);
+				count++;
+			}
+			else
+			{
+				n = -n;
+			}
 		}
 		temp = n;
 		numDigits = 0;
 		while (temp != 0)
 		{
-			temp /= 10;
+			temp = temp / 10;
 			numDigits++;
 		}
 		for (i = 1; i < numDigits; i++)
 		{
-			divisor *= 10;
+			div = div * 10;
 		}
-		while (divisor != 0)
+		while (div != 0)
 		{
-			digit = n / divisor;
+			digit = n / div;
 			putchar(digit + '0');
-			n %= divisor;
-			divisor /= 10;
+			n = n % div;
+			div /= 10;
 			count++;
 		}
 	}

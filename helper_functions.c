@@ -11,7 +11,7 @@ int printUnsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int i = 0, j = 0, count = 0;
-	int digits[64];
+	unsigned int digits[64];
 
 	if (n == 0)
 	{
@@ -33,28 +33,4 @@ int printUnsigned(va_list args)
 		}
 	}
 	return (count);
-}
-
-/**
- * print_custom_char - prints custom conversion specifiers
- *
- * @ch: character
- *
- * Return: no return value
- */
-void print_custom_char(char ch)
-{
-	char hexDec[] = "0123456789ABCDEF";
-
-	if (ch < 32 || ch >= 127)
-	{
-		putchar('\\');
-		putchar('x');
-		putchar(hexDec[(ch >> 4) & 0xF]);
-		putchar(hexDec[ch & 0xF]);
-	}
-	else
-	{
-		putchar(ch);
-	}
 }

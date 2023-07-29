@@ -15,7 +15,6 @@ int (*get_spec(const char *s))(va_list args)
 		{'i', print_number}, {'u', printUnsigned},
 		{'b', printBinary}, {'o', printOctal},
 		{'x', printHexadec}, {'X', printHexaDec},
-		{'S', printCustom},
 		{'\0', NULL}
 	};
 	int i = 0;

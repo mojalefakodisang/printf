@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <strings.h>
+#include <limits.h>
 
 /* Macros */
 
@@ -41,6 +42,6 @@ int printAddress(va_list args);
 int (*get_spec(const char *s))(va_list args);
 int get_print_func(char *s, va_list args);
 int printUnsigned(va_list args);
-void print_custom_char(char ch);
+void print_custom_char(const char *ch);
 
 #endif
