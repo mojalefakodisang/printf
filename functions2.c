@@ -47,7 +47,11 @@ int printOctal(va_list args)
 	unsigned int octal[64];
 
 	i = 0;
-	while (n != 0)
+	if (n == 0)
+	{
+		putchar('0');
+	}
+	while (n > 0)
 	{
 		octal[i] = n % 8;
 		n /= 8;
@@ -58,7 +62,7 @@ int printOctal(va_list args)
 		putchar(n);
 		count++;
 	}
-	for (j = i - 1; j >= 0; --j)
+	for (j = i - 1; j >= 0; j--)
 	{
 		putchar(octal[j] + '0');
 		count++;
@@ -79,6 +83,10 @@ int printHexadec(va_list args)
 	unsigned int hexadec[64];
 
 	i = 0;
+	if (n == 0)
+	{
+		putchar('0');
+	}
 	while (n > 0)
 	{
 		hexadec[i] = n % 16;
@@ -119,6 +127,10 @@ int printHexaDec(va_list args)
 	unsigned int hexaDec[64];
 
 	i = 0;
+	if (n == 0)
+	{
+		putchar('0');
+	}
 	while (n > 0)
 	{
 		hexaDec[i] = n % 16;
